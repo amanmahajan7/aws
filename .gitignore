@@ -3,5 +3,8 @@
 node_modules
 bower_components
 
+**/app/**/*.js
+**/app/**/*.js.map
+
 **/typings/**/*.d.ts
 **/typings/tsd.cached.json
