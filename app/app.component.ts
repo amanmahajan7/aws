@@ -17,7 +17,30 @@ export class AppComponent {
     groups = GROUPS;
 }
 
-var GROUPS: AwsGroup[] = [
-  { title: 'First', services : [ { id: 1, title: 'First Title', detail: '', image: '' } ] },
-  { title: 'Second', services : [ { id: 2, title: 'Second Title', detail: '', image: '' } ] }
-];
+var GROUPS: AwsGroup[] = [{
+    title: 'Compute',
+    services: [{
+        id: 1,
+        title: 'EC2',
+        detail: 'Virtual Servers in the Cloud',
+        image: ''
+    },{
+        id: 2,
+        title: 'EC2 Container Service',
+        detail: 'Run and Manage Docker Containers',
+        image: ''
+    }]
+}, {
+        title: 'Storage & Content Delivery',
+        services: [{
+            id: 1,
+            title: 'S3',
+            detail: 'Scalable Storage in the Cloud',
+            image: ''
+        },{
+            id: 2,
+            title: 'CloudFront',
+            detail: 'Global Content Delivery Network',
+            image: ''
+        }]
+    }];

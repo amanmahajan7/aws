@@ -7,7 +7,10 @@ import { AwsGroupComponent } from './aws.group.component';
     directives: [AwsGroupComponent],
     template: `
         <div class="container-fluid">
-            <aws-group *ngFor="#group of groups" [group]="group"></aws-group>
+            <h1>Amazon Web Services</h1>
+            <div class="row">
+                <aws-group class="col-sm-4" *ngFor="#group of groups" [group]="group"></aws-group>
+            </div>
         </div>
     `
 })
