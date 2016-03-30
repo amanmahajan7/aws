@@ -1,14 +1,14 @@
-import { Component } from 'angular2/core';
+import { Component, Input } from 'angular2/core';
 import { Aws } from './aws';
 
 @Component({
     selector: 'aws',
-    inputs: ['service'],
     template: `
-        <h2>{{service.title}}</h2>
+        <h3>{{service.title}}</h3>
         <div>{{service.detail}}</div>
     `
 })
 export class AwsComponent {
+    @Input()
     service : Aws; 
 }
