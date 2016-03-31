@@ -1,46 +1,25 @@
 import { Component } from 'angular2/core';
-import { Aws } from './aws/aws';
-import { AwsGroup } from './aws/aws.group';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { HeaderComponent } from './header/header.component';
 import { AwsListComponent } from './aws/aws.list.component';
+import { EC2Component } from './ec2/ec2.component';
 
+@RouteConfig([
+    { path: '/', name: 'AwsList', component: AwsListComponent, useAsDefault: true },
+    { path: '/EC2', name: 'EC2', component: EC2Component }
+])
 @Component({
     selector: 'app',
-    directives: [HeaderComponent, AwsListComponent],
+    directives: [
+        ROUTER_DIRECTIVES, 
+        HeaderComponent
+    ],
+    providers: [],
     template: `
         <header></header>
-        <aws-list [groups]="groups"><aws-list>
+        <router-outlet></router-outlet>
     `
 })
 export class AppComponent {
     title = 'Amazon Web Services';
-    groups = GROUPS;
 }
-
-var GROUPS: AwsGroup[] = [{
-    title: 'Compute',
-    services: [{
-        id: 1,
-        title: 'EC2',
-        detail: 'Virtual Servers in the Cloud',
-        image: ''
-    },{
-        id: 2,
-        title: 'EC2 Container Service',
-        detail: 'Run and Manage Docker Containers',
-        image: ''
-    }]
-}, {
-        title: 'Storage & Content Delivery',
-        services: [{
-            id: 1,
-            title: 'S3',
-            detail: 'Scalable Storage in the Cloud',
-            image: ''
-        },{
-            id: 2,
-            title: 'CloudFront',
-            detail: 'Global Content Delivery Network',
-            image: ''
-        }]
-    }];

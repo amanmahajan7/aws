@@ -1,8 +1,10 @@
 import { Component, Input } from 'angular2/core';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 import { Aws } from './aws';
 
 @Component({
     selector: 'aws',
+    directives: [ROUTER_DIRECTIVES],
     styles: [`
         .aws {
             text-decoration:none;
@@ -26,7 +28,7 @@ import { Aws } from './aws';
             }
     `],
     template: `
-        <a class="aws" href="#">
+        <a class="aws" [routerLink]="['EC2']">
             <div class="aws-title">{{service.title}}</div>
             <div class="aws-detail">{{service.detail}}</div>
         </a>
